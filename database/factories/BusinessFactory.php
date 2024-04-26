@@ -17,7 +17,8 @@ class BusinessesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "name" => faker()->company(),
+            
         ];
     }
 }
