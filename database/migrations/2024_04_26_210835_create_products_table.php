@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('serving');
             $table->decimal('price');
-            $table->integer('business_id');
-            $table->integer('category_products_id');
+            $table->foreingIdFor(User::class)->constrained();
+            $table->foreingIdFor(Uer::class)->constrained();
             $table->timestamps();
         });
     }

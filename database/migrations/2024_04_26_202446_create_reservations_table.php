@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->id('customer_id');
+            $table->foreingIdFor(User::class)->constrained();
             $table->date('saved_date');
             $table->time('start_time');
             $table->integer('quantity');

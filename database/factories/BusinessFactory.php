@@ -18,7 +18,7 @@ class BusinessesFactory extends Factory
     {
         return [
             "name" => faker()->company(),
-            
+
         ];
     }
 }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('business_id');
+            $table->foreingIdFor(User::class)->constrained();
             $table->string('description');
-            $table->integer('product_id');
+            $table->foreingIdFor(User::class)->constrained();
             $table->date('end_date');
             $table->timestamps();
         });

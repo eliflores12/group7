@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('brithday');
             $table->string('password');
             $table->boolean('password_confirm');
-            $table->integer('role_id');
+            $table->foreingIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }

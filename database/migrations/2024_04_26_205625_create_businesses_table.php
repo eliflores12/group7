@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(User::class)->constrained();
-            $table->integer('type_id');
+            $table->foreingIdFor(User::class)->constrained();
             $table->string('location');
             $table->string('telephone');
             $table->string('email');
