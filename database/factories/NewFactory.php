@@ -17,7 +17,10 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title'=>$this->faker(),
+            'description'=>$this->faker(),
+            'end_date'=>$this->faker(),
+
         ];
     }
 }

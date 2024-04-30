@@ -17,8 +17,14 @@ class BusinessesFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => faker()->company(),
-
+            'name' => $this->faker()->company(),
+            'saved_date'=> $this->faker()->date(),
+            'start_time' => $this->faker()->date(),
+            'quantity' => $this->faker()->numberBetween(0,10),
+            'table_ubication' =>$this->faker()->timezone(),
+            'phone_number' =>$this->faker()->numberBetween(0,10),
+            'type'=>$this->faker()->nullable(),
+            'email'=>$this->faker->unique()->safeEmail(),
         ];
     }
 }

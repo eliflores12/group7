@@ -17,7 +17,8 @@ class ReviewsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'review'=>$this->faker()->text(),
+            
         ];
     }
 }

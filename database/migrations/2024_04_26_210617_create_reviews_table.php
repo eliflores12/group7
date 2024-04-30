@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Businesses;
+use App\Models\Users;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +16,8 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->text('review');
-            $table->integer('users_id');
-            $table->integer('business_id');
+            $table->foreignIdFor(Users::class)->constrained();
+            $table->foreignIdFor(Businesses::class)->constrained();
             $table->timestamps();
         });
     }
