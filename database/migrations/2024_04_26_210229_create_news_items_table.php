@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('newsitems', function (Blueprint $table) {
+        Schema::create('news_items', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->foreignIdFor(Product::class)->constrained();
             $table->date('end_date');
             $table->timestamps();

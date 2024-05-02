@@ -17,8 +17,7 @@ class TypeFactory extends Factory
     public function definition(): array
     {
         return [
-                'name' => fake()->name(),
-
+            'name' => fake()->words(3, true),
         ];
     }
 }

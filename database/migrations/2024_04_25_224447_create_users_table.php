@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone_number');
-            $table->date('brithday');
+            $table->date('birthday');
             $table->string('password');
             $table->foreignIdFor(Role::class)->constrained();
             $table->timestamps();

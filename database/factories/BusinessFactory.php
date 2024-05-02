@@ -2,13 +2,27 @@
 
 namespace Database\Factories;
 
+use App\Models\Type;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Businesses>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Business>
  */
-class BusinessesFactory extends Factory
+class BusinessFactory extends Factory
 {
+    public function types() {
+        return once(function() {
+            return Type::pluck('id');
+        });
+    }
+
+    public function users() {
+        return once(function () {
+            return User::where('role_id', 1)->pluck('id');
+        });
+    }
+
     /**
      * Define the model's default state.
      *
@@ -17,14 +31,13 @@ class BusinessesFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker()->company(),
-            'saved_date'=> $this->faker()->date(),
-            'start_time' => $this->faker()->date(),
-            'quantity' => $this->faker()->numberBetween(0,10),
-            'table_ubication' =>$this->faker()->timezone(),
-            'phone_number' =>$this->faker()->numberBetween(0,10),
-            'type'=>$this->faker()->nullable(),
-            'email'=>$this->faker->unique()->safeEmail(),
+            'name' => fake()->company(),
+            'type_id' => $this->types()->random(),
+            'location' =>fake()->address(),
+            'phone_number' =>fake()->numerify('####-####'),
+            'email'=> fake()->unique()->safeEmail(),
+            'schedule' => fake()->words(3, true),
+            'user_id' => $this->users()->random(),
         ];
     }
 }
