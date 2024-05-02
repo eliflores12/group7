@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Business;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,8 +19,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('serving');
             $table->decimal('price');
-            $table->foreingIdFor(User::class)->constrained();
-            $table->foreingIdFor(Uer::class)->constrained();
+            $table->foreignIdFor(Category::class)->constrained();
+            $table->foreignIdFor(Business::class)->constrained();
             $table->timestamps();
         });
     }

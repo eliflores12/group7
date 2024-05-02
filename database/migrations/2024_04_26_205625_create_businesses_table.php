@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use App\Models\Type;
 
 return new class extends Migration
 {
@@ -15,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(User::class)->constrained();
-            $table->foreingIdFor(User::class)->constrained();
+            $table->foreignIdFor(Type::class)->constrained();
             $table->string('location');
-            $table->string('telephone');
+            $table->string('phone_number');
             $table->string('email');
-            $table->string('string');
+            $table->string('schedule');
             $table->timestamps();
         });
     }
