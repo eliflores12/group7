@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('type');
             $table->foreignIdFor(Business::class)->constrained();
+            $table->string('status');
             $table->timestamps();
         });
     }
